@@ -22,7 +22,8 @@ func api(w http.ResponseWriter, r *http.Request) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 	defer resp.Body.Close()
 	w.Header().Set("Access-Control-Allow-Origin", "*")
